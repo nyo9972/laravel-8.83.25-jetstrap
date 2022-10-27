@@ -1,29 +1,29 @@
 <x-jet-action-section>
     <x-slot name="title">
-        {{ __('Two Factor Authentication') }}
+        {{ __('Autenticação de dois fatores') }}
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Add additional security to your account using two factor authentication.') }}
+        {{ __('Adicione segurança adicional à sua conta usando autenticação de dois fatores.') }}
     </x-slot>
 
     <x-slot name="content">
         <h3 class="h5 font-weight-bold">
             @if ($this->enabled)
-                {{ __('You have enabled two factor authentication.') }}
+                {{ __('Você ativou a autenticação de dois fatores.') }}
             @else
-                {{ __('You have not enabled two factor authentication.') }}
+                {{ __('Você não ativou a autenticação de dois fatores.') }}
             @endif
         </h3>
 
         <p class="mt-3">
-            {{ __('When two factor authentication is enabled, you will be prompted for a secure, random token during authentication. You may retrieve this token from your phone\'s Google Authenticator application.') }}
+            {{ __('Quando a autenticação de dois fatores estiver habilitada, você será solicitado a fornecer um token seguro e aleatório durante a autenticação. Você pode recuperar este token do seu telefone\'Aplicativo Google Authenticator.') }}
         </p>
 
         @if ($this->enabled)
             @if ($showingQrCode)
                 <p class="mt-3">
-                    {{ __('Two factor authentication is now enabled. Scan the following QR code using your phone\'s authenticator application.') }}
+                    {{ __('A autenticação de dois fatores agora está habilitada. Digitalize o seguinte código QR usando seu telefone\'Aplicativo Google Authenticator.') }}
                 </p>
 
                 <div class="mt-3">
@@ -33,7 +33,7 @@
 
             @if ($showingRecoveryCodes)
                 <p class="mt-3">
-                    {{ __('Store these recovery codes in a secure password manager. They can be used to recover access to your account if your two factor authentication device is lost.') }}
+                    {{ __('Armazene esses códigos de recuperação em um gerenciador de senhas seguro. Eles podem ser usados ​​para recuperar o acesso à sua conta se seu dispositivo de autenticação de dois fatores for perdido.') }}
                 </p>
 
                 <div class="bg-light rounded p-3">
@@ -48,7 +48,7 @@
             @if (! $this->enabled)
                 <x-jet-confirms-password wire:then="enableTwoFactorAuthentication">
                     <x-jet-button type="button" wire:loading.attr="disabled">
-                        {{ __('Enable') }}
+                        {{ __('Permitir') }}
                     </x-jet-button>
                 </x-jet-confirms-password>
             @else
@@ -56,20 +56,20 @@
                     <x-jet-confirms-password wire:then="regenerateRecoveryCodes">
                         <x-jet-secondary-button class="me-3">
                             <div wire:loading wire:target="regenerateRecoveryCodes" class="spinner-border spinner-border-sm" role="status">
-                                <span class="visually-hidden">Loading...</span>
+                                <span class="visually-hidden">Carregando...</span>
                             </div>
 
-                            {{ __('Regenerate Recovery Codes') }}
+                            {{ __('Regenerar Códigos de Recuperação') }}
                         </x-jet-secondary-button>
                     </x-jet-confirms-password>
                 @else
                     <x-jet-confirms-password wire:then="showRecoveryCodes">
                         <x-jet-secondary-button class="me-3">
                             <div wire:loading wire:target="showRecoveryCodes" class="spinner-border spinner-border-sm" role="status">
-                                <span class="visually-hidden">Loading...</span>
+                                <span class="visually-hidden">Carregando...</span>
                             </div>
 
-                            {{ __('Show Recovery Codes') }}
+                            {{ __('Mostrar códigos de recuperação') }}
                         </x-jet-secondary-button>
                     </x-jet-confirms-password>
                 @endif
@@ -77,10 +77,10 @@
                 <x-jet-confirms-password wire:then="disableTwoFactorAuthentication">
                     <x-jet-danger-button wire:loading.attr="disabled">
                         <div wire:loading wire:target="disableTwoFactorAuthentication" class="spinner-border spinner-border-sm" role="status">
-                            <span class="visually-hidden">Loading...</span>
+                            <span class="visually-hidden">Carregando...</span>
                         </div>
 
-                        {{ __('Disable') }}
+                        {{ __('Desativar') }}
                     </x-jet-danger-button>
                 </x-jet-confirms-password>
             @endif

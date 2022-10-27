@@ -2,22 +2,22 @@
     <!-- Generate API Token -->
     <x-jet-form-section submit="createApiToken">
         <x-slot name="title">
-            {{ __('Create API Token') }}
+            {{ __('Criar token de API') }}
         </x-slot>
 
         <x-slot name="description">
-            {{ __('API tokens allow third-party services to authenticate with our application on your behalf.') }}
+            {{ __('Os tokens de API permitem que serviços de terceiros se autentiquem com nosso aplicativo em seu nome.') }}
         </x-slot>
 
         <x-slot name="form">
             <x-jet-action-message on="created">
-                {{ __('Created.') }}
+                {{ __('Criado.') }}
             </x-jet-action-message>
 
             <div class="w-md-75">
                 <!-- Token Name -->
                 <div class="mb-3">
-                    <x-jet-label for="name" value="{{ __('Token Name') }}" />
+                    <x-jet-label for="name" value="{{ __('Nome do Token') }}" />
                     <x-jet-input id="name" type="text" class="{{ $errors->has('name') ? 'is-invalid' : '' }}"
                                  wire:model.defer="createApiTokenForm.name" autofocus />
                     <x-jet-input-error for="name" />
@@ -49,7 +49,7 @@
 
         <x-slot name="actions">
             <x-jet-button>
-                {{ __('Create') }}
+                {{ __('Criar') }}
             </x-jet-button>
         </x-slot>
     </x-jet-form-section>
@@ -61,11 +61,11 @@
         <div>
             <x-jet-action-section>
                 <x-slot name="title">
-                    {{ __('Manage API Tokens') }}
+                    {{ __('Gerenciar tokens de API') }}
                 </x-slot>
 
                 <x-slot name="description">
-                    {{ __('You may delete any of your existing tokens if they are no longer needed.') }}
+                    {{ __('Você pode excluir qualquer um dos seus tokens existentes se eles não forem mais necessários.') }}
                 </x-slot>
 
                 <!-- API Token List -->
@@ -80,18 +80,18 @@
                                 <div class="d-flex">
                                     @if ($token->last_used_at)
                                         <div class="text-sm text-muted">
-                                            {{ __('Last used') }} {{ $token->last_used_at->diffForHumans() }}
+                                            {{ __('Usado por último') }} {{ $token->last_used_at->diffForHumans() }}
                                         </div>
                                     @endif
 
                                     @if (Laravel\Jetstream\Jetstream::hasPermissions())
                                         <button class="btn btn-link text-secondary" wire:click="manageApiTokenPermissions({{ $token->id }})">
-                                            {{ __('Permissions') }}
+                                            {{ __('Permissões') }}
                                         </button>
                                     @endif
 
                                     <button class="btn btn-link text-danger text-decoration-none" wire:click="confirmApiTokenDeletion({{ $token->id }})">
-                                        {{ __('Delete') }}
+                                        {{ __('Apagar') }}
                                     </button>
                                 </div>
                             </div>
@@ -110,7 +110,7 @@
 
         <x-slot name="content">
             <div>
-                {{ __('Please copy your new API token. For your security, it won\'t be shown again.') }}
+                {{ __('Copie seu novo token de API. Para sua segurança, ganhou\' ser mostrado novamente.') }}
             </div>
 
             <div class="mb-3">
@@ -123,7 +123,7 @@
 
         <x-slot name="footer">
             <x-jet-secondary-button wire:click="$set('displayingToken', false)" wire:loading.attr="disabled">
-                {{ __('Close') }}
+                {{ __('Fechar') }}
             </x-jet-secondary-button>
         </x-slot>
     </x-jet-dialog-modal>
@@ -131,7 +131,7 @@
     <!-- API Token Permissions Modal -->
     <x-jet-dialog-modal wire:model="managingApiTokenPermissions">
         <x-slot name="title">
-            {{ __('API Token Permissions') }}
+            {{ __('Permissões de token de API') }}
         </x-slot>
 
         <x-slot name="content">
@@ -157,7 +157,7 @@
             </x-jet-secondary-button>
 
             <x-jet-button wire:click="updateApiToken" wire:loading.attr="disabled">
-                {{ __('Save') }}
+                {{ __('Salvar') }}
             </x-jet-button>
         </x-slot>
     </x-jet-dialog-modal>
@@ -165,20 +165,20 @@
     <!-- Delete Token Confirmation Modal -->
     <x-jet-confirmation-modal wire:model="confirmingApiTokenDeletion">
         <x-slot name="title">
-            {{ __('Delete API Token') }}
+            {{ __('Apagar API Token') }}
         </x-slot>
 
         <x-slot name="content">
-            {{ __('Are you sure you would like to delete this API token?') }}
+            {{ __('Tem certeza de que deseja excluir este token de API?') }}
         </x-slot>
 
         <x-slot name="footer">
             <x-jet-secondary-button wire:click="$toggle('confirmingApiTokenDeletion')" wire:loading.attr="disabled">
-                {{ __('Cancel') }}
+                {{ __('Cancelar') }}
             </x-jet-secondary-button>
 
             <x-jet-danger-button wire:loading.attr="disabled" wire:click="deleteApiToken">
-                {{ __('Delete') }}
+                {{ __('Apagar') }}
             </x-jet-danger-button>
         </x-slot>
     </x-jet-confirmation-modal>

@@ -5,20 +5,20 @@
         <!-- Add Team Member -->
         <x-jet-form-section submit="addTeamMember">
             <x-slot name="title">
-                {{ __('Add Team Member') }}
+                {{ __('Adicionar membro da equipe') }}
             </x-slot>
 
             <x-slot name="description">
-                {{ __('Add a new team member to your team, allowing them to collaborate with you.') }}
+                {{ __('Adicione um novo membro à sua equipe, permitindo que eles colaborem com você.') }}
             </x-slot>
 
             <x-slot name="form">
                 <x-jet-action-message on="saved">
-                    {{ __('Added.') }}
+                    {{ __('Adicionado.') }}
                 </x-jet-action-message>
 
                 <div class="mb-3">
-                    {{ __('Please provide the email address of the person you would like to add to this team. The email address must be associated with an existing account.') }}
+                    {{ __('Forneça o endereço de e-mail da pessoa que você gostaria de adicionar a esta equipe. O endereço de e-mail deve estar associado a uma conta existente.') }}
                 </div>
 
                     <!-- Member Email -->
@@ -67,7 +67,7 @@
 
             <x-slot name="actions">
                 <x-jet-button>
-                    {{ __('Add') }}
+                    {{ __('Adicionar') }}
                 </x-jet-button>
             </x-slot>
         </x-jet-form-section>
@@ -79,11 +79,11 @@
         <!-- Team Member Invitations -->
         <x-jet-action-section>
             <x-slot name="title">
-                {{ __('Pending Team Invitations') }}
+                {{ __('Convites de equipe pendentes') }}
             </x-slot>
 
             <x-slot name="description">
-                {{ __('These people have been invited to your team and have been sent an invitation email. They may join the team by accepting the email invitation.') }}
+                {{ __('Essas pessoas foram convidadas para sua equipe e receberam um e-mail de convite. Eles podem se juntar à equipe aceitando o convite por e-mail.') }}
             </x-slot>
 
             <x-slot name="content">
@@ -100,7 +100,7 @@
                                         <span class="visually-hidden">Loading...</span>
                                     </div>
 
-                                    {{ __('Cancel') }}
+                                    {{ __('Cancelar') }}
                                 </button>
                             @endif
                         </div>
@@ -116,11 +116,11 @@
         <!-- Manage Team Members -->
         <x-jet-action-section>
             <x-slot name="title">
-                {{ __('Team Members') }}
+                {{ __('Membros da equipe') }}
             </x-slot>
 
             <x-slot name="description">
-                {{ __('All of the people that are part of this team.') }}
+                {{ __('Todas as pessoas que fazem parte desta equipe.') }}
             </x-slot>
 
             <!-- Team Member List -->
@@ -149,17 +149,17 @@
                             <!-- Leave Team -->
                             @if ($this->user->id === $user->id)
                                 <button class="btn btn-link text-danger text-decoration-none" wire:click="$toggle('confirmingLeavingTeam')">
-                                    {{ __('Leave') }}
+                                    {{ __('Sair') }}
                                 </button>
 
                             <!-- Remove Team Member -->
                             @elseif (Gate::check('removeTeamMember', $team))
                                 <button class="btn btn-link text-danger text-decoration-none" wire:click="confirmTeamMemberRemoval('{{ $user->id }}')">
                                     <div wire:loading wire:target="confirmTeamMemberRemoval" class="spinner-border spinner-border-sm" role="status">
-                                        <span class="visually-hidden">Loading...</span>
+                                        <span class="visually-hidden">Carregando...</span>
                                     </div>
 
-                                    {{ __('Remove') }}
+                                    {{ __('Remover') }}
                                 </button>
                             @endif
                         </div>
@@ -200,11 +200,11 @@
 
         <x-slot name="footer">
             <x-jet-secondary-button wire:click="stopManagingRole" wire:loading.attr="disabled">
-                {{ __('Cancel') }}
+                {{ __('Cancelar') }}
             </x-jet-secondary-button>
 
             <x-jet-button class="ms-2" wire:click="updateRole" wire:loading.attr="disabled">
-                {{ __('Save') }}
+                {{ __('Salvar') }}
             </x-jet-button>
         </x-slot>
     </x-jet-dialog-modal>
@@ -212,20 +212,20 @@
     <!-- Leave Team Confirmation Modal -->
     <x-jet-confirmation-modal wire:model="confirmingLeavingTeam">
         <x-slot name="title">
-            {{ __('Leave Team') }}
+            {{ __('Sair da equipe') }}
         </x-slot>
 
         <x-slot name="content">
-            {{ __('Are you sure you would like to leave this team?') }}
+            {{ __('Tem certeza de que gostaria de deixar esta equipe?') }}
         </x-slot>
 
         <x-slot name="footer">
             <x-jet-secondary-button wire:click="$toggle('confirmingLeavingTeam')" wire:loading.attr="disabled">
-                {{ __('Cancel') }}
+                {{ __('Cancelar') }}
             </x-jet-secondary-button>
 
             <x-jet-danger-button class="ms-2" wire:click="leaveTeam" wire:loading.attr="disabled">
-                {{ __('Leave') }}
+                {{ __('Sair') }}
             </x-jet-danger-button>
         </x-slot>
     </x-jet-confirmation-modal>
@@ -233,20 +233,20 @@
     <!-- Remove Team Member Confirmation Modal -->
     <x-jet-confirmation-modal wire:model="confirmingTeamMemberRemoval">
         <x-slot name="title">
-            {{ __('Remove Team Member') }}
+            {{ __('Remover membro da equipe') }}
         </x-slot>
 
         <x-slot name="content">
-            {{ __('Are you sure you would like to remove this person from the team?') }}
+            {{ __('Tem certeza de que deseja remover essa pessoa da equipe?') }}
         </x-slot>
 
         <x-slot name="footer">
             <x-jet-secondary-button wire:click="$toggle('confirmingTeamMemberRemoval')" wire:loading.attr="disabled">
-                {{ __('Cancel') }}
+                {{ __('Cancelar') }}
             </x-jet-secondary-button>
 
             <x-jet-danger-button class="ms-2" wire:click="removeTeamMember" wire:loading.attr="disabled">
-                {{ __('Remove') }}
+                {{ __('Remover') }}
             </x-jet-danger-button>
         </x-slot>
     </x-jet-confirmation-modal>

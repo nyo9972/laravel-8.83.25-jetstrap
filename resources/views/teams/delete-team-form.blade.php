@@ -1,37 +1,37 @@
 <x-jet-action-section>
     <x-slot name="title">
-        {{ __('Delete Team') }}
+        {{ __('Excluir equipe') }}
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Permanently delete this team.') }}
+        {{ __('Excluir permanentemente esta equipe.') }}
     </x-slot>
 
     <x-slot name="content">
         <div class="test-sm text-muted">
-            {{ __('Once a team is deleted, all of its resources and data will be permanently deleted. Before deleting this team, please download any data or information regarding this team that you wish to retain.') }}
+            {{ __('Depois que uma equipe for excluída, todos os seus recursos e dados serão excluídos permanentemente. Antes de excluir esta equipe, faça o download de quaisquer dados ou informações sobre essa equipe que você deseja manter.') }}
         </div>
 
         <div class="mt-3">
             <x-jet-danger-button wire:click="$toggle('confirmingTeamDeletion')" wire:loading.attr="disabled">
-                {{ __('Delete Team') }}
+                {{ __('Excluir equipe') }}
             </x-jet-danger-button>
         </div>
 
-        <!-- Delete Team Confirmation Modal -->
+        <!-- Delete team Confirmation Modal -->
         <x-jet-confirmation-modal wire:model="confirmingTeamDeletion">
             <x-slot name="title">
-                {{ __('Delete Team') }}
+                {{ __('Excluir equipe') }}
             </x-slot>
 
             <x-slot name="content">
-                {{ __('Are you sure you want to delete this team? Once a team is deleted, all of its resources and data will be permanently deleted.') }}
+                {{ __('Tem certeza de que deseja excluir esta equipe? Depois que uma equipe for excluída, todos os seus recursos e dados serão excluídos permanentemente.') }}
             </x-slot>
 
             <x-slot name="footer">
                 <x-jet-secondary-button wire:click="$toggle('confirmingTeamDeletion')"
                                         wire:loading.attr="disabled">
-                    {{ __('Cancel') }}
+                    {{ __('Cancelar') }}
                 </x-jet-secondary-button>
 
                 <x-jet-danger-button wire:click="deleteTeam" wire:loading.attr="disabled">
@@ -39,7 +39,7 @@
                         <span class="visually-hidden">Loading...</span>
                     </div>
 
-                    {{ __('Delete Team') }}
+                    {{ __('Excluir equipe') }}
                 </x-jet-danger-button>
             </x-slot>
         </x-jet-confirmation-modal>

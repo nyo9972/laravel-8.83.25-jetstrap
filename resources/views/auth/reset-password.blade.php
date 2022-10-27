@@ -22,7 +22,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <x-jet-label value="{{ __('Password') }}" />
+                    <x-jet-label value="{{ __('Senha') }}" />
 
                     <x-jet-input class="{{ $errors->has('password') ? 'is-invalid' : '' }}" type="password"
                                  name="password" required autocomplete="new-password" />
@@ -30,7 +30,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <x-jet-label value="{{ __('Confirm Password') }}" />
+                    <x-jet-label value="{{ __('Confirmação da senha') }}" />
 
                     <x-jet-input class="{{ $errors->has('password_confirmation') ? 'is-invalid' : '' }}" type="password"
                                  name="password_confirmation" required autocomplete="new-password" />
@@ -40,7 +40,7 @@
                 <div class="mb-0">
                     <div class="d-flex justify-content-end">
                         <x-jet-button>
-                            {{ __('Reset Password') }}
+                            {{ __('Alterar senha') }}
                         </x-jet-button>
                     </div>
                 </div>

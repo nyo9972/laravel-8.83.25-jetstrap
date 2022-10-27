@@ -6,12 +6,12 @@
 
         <div class="card-body">
             <div class="mb-3 small text-muted">
-                {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
+                {{ __('Obrigado por inscrever-se! Antes de começar, você poderia verificar seu endereço de e-mail clicando no link que acabamos de enviar para você? Se você não\'receber o e-mail, teremos o prazer de lhe enviar outro.') }}
             </div>
 
             @if (session('status') == 'verification-link-sent')
                 <div class="alert alert-success" role="alert">
-                    {{ __('A new verification link has been sent to the email address you provided during registration.') }}
+                    {{ __('Um novo link de verificação foi enviado para o endereço de e-mail fornecido durante o registro.') }}
                 </div>
             @endif
 
@@ -21,7 +21,7 @@
 
                     <div>
                         <x-jet-button type="submit">
-                            {{ __('Resend Verification Email') }}
+                            {{ __('Reenviar email de verificação') }}
                         </x-jet-button>
                     </div>
                 </form>
@@ -30,7 +30,7 @@
                     @csrf
 
                     <button type="submit" class="btn btn-link">
-                        {{ __('Log Out') }}
+                        {{ __('Sair') }}
                     </button>
                 </form>
             </div>
