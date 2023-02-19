@@ -7,40 +7,41 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
-
-        <!-- Styles -->
+        <link href="{{url('assets/css/sb-admin-2.min.css')}}" rel="stylesheet">
+        <link href="{{url('assets/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+        <script src="{{url('assets/vendor/jquery/jquery.min.js')}}"></script>
+        <script src="{{url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+        <script src="{{url('assets/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+        <script src="{{url('assets/js/sb-admin-2.min.js')}}"></script>
+        <script src="{{url('assets/vendor/chart.js/Chart.min.js')}}"></script>
+        <script src="{{url('assets/js/demo/chart-area-demo.js')}}"></script>
+        <script src="{{url('assets/js/demo/chart-pie-demo.js')}}"></script>
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-
-        <!-- Icons -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-
-        @livewireStyles
-
-        <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
+        @livewireStyles
     </head>
     <body class="font-sans antialiased bg-light">
-        <x-jet-banner />
-        @livewire('navigation-menu')
+        <div id="wrapper">
+            @livewire('navigation-menu')
 
-        <!-- Page Heading -->
-        <header class="d-flex py-3 bg-white shadow-sm border-bottom">
-            <div class="container">
-                {{ $header }}
+            <div id="content-wrapper" class="d-flex flex-column">
+                <div id="content">
+                    <div class="card">
+                        <div class="card-body">
+                            {{ $header }}
+                        </div>
+                    </div>
+                </div>
             </div>
-        </header>
-
-        <!-- Page Content -->
+        </div>
         <main class="container my-5">
             {{ $slot }}
         </main>
 
         @stack('modals')
-
         @livewireScripts
-
         @stack('scripts')
     </body>
 </html>
